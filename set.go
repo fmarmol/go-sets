@@ -1,6 +1,8 @@
 package sets
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Set[T comparable] map[T]struct{}
 
@@ -29,6 +31,13 @@ func (s *Set[T]) Contains(elem T) bool {
 
 func (s *Set[T]) Len() int {
 	return len(*s)
+}
+
+func (s *Set[T]) List() (ret []T) {
+	for elem := range *s {
+		ret = append(ret, elem)
+	}
+	return
 }
 
 func (s *Set[T]) IsEmpty() bool {

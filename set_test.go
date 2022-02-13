@@ -34,3 +34,8 @@ func TestSetString(t *testing.T) {
 	}
 	assert.True(t, s.Len() == 0)
 }
+
+func TestList(t *testing.T) {
+	s := NewSet(1, 2, 3)
+	assert.ElementsMatch(t, []int{1, 2, 3}, s.List())
+}
